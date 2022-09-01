@@ -1,5 +1,12 @@
 # dplyr (development version)
 
+* Warnings emitted inside `mutate()` and variants are now collected and stashed
+  away. Run the new `dplyr_last_warnings()` function to see the warnings emitted
+  within dplyr verbs during the last top-level command.
+
+  This fixes performance issues when throusands of warnings are emitted with
+  rowwise and grouped data frames (#6236).
+
 * `row_number()`, `min_rank()`, `dense_rank()`, `ntile()`, `cume_dist()`, and
   `percent_rank()` are now powered by vctrs, meaning that they are faster and
   work for more types. You can now also rank by multiple columns at once by
